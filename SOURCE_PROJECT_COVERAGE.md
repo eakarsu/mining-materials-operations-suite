@@ -7,3 +7,4 @@
 | AI3DPrintingOptimizer | 13 | 5 | 1 | 5 | aiRoutes.js<br>analytics.js<br>auth.js<br>buildTimeEstimates.js<br>failurePredictions.js |
 | AIBreweryCraftBeverageOps | 20 | 16 | 1 | 4 | ai.js<br>alerts.js<br>analytics.js<br>auth.js<br>batches.js |
 | AICryptocurrencyTaxCalculator | 13 | 8 | 1 | 5 | aiCenter.js<br>aiNew.js<br>audit.js<br>auth.js<br>compliance.js |
+| AIMineralExplorationGeology | 0 | 0 | 0 | 1 | Exploration Targets<br>Geology Sample Review<br>Mineral Prospect Risk |

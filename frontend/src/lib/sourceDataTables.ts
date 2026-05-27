@@ -8862,6 +8862,2552 @@ export const sourceDataTables: SourceDataTable[] = [
     ]
   },
   {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-ai-results",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "ai_results",
+    "displayName": "Ai Results",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "feature",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "feature         VARCHAR(80) NOT NULL"
+      },
+      {
+        "name": "input",
+        "type": "JSONB",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "input           JSONB"
+      },
+      {
+        "name": "output",
+        "type": "JSONB",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "output          JSONB"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-assay-results",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "assay_results",
+    "displayName": "Assay Results",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "assay_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "assay_id          VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "hole_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "hole_id           VARCHAR(50)"
+      },
+      {
+        "name": "from_m",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "from_m            NUMERIC(8,2)"
+      },
+      {
+        "name": "to_m",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "to_m              NUMERIC(8,2)"
+      },
+      {
+        "name": "element",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "element           VARCHAR(20)"
+      },
+      {
+        "name": "value_ppm",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "value_ppm         NUMERIC(14,4)"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-attachments",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "attachments",
+    "displayName": "Attachments",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "resource_type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "resource_type   VARCHAR(60)"
+      },
+      {
+        "name": "resource_id",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "resource_id     INTEGER"
+      },
+      {
+        "name": "filename",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "filename        VARCHAR(255)"
+      },
+      {
+        "name": "original_name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "original_name   VARCHAR(255)"
+      },
+      {
+        "name": "mimetype",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "mimetype        VARCHAR(120)"
+      },
+      {
+        "name": "size_bytes",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "size_bytes      INTEGER"
+      },
+      {
+        "name": "uploaded_by",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "uploaded_by     VARCHAR(150)"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-audit-log",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "audit_log",
+    "displayName": "Audit Log",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "entry_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "entry_id          VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "actor",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "actor             VARCHAR(150)"
+      },
+      {
+        "name": "target",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "target            VARCHAR(200)"
+      },
+      {
+        "name": "action",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "action            VARCHAR(80)"
+      },
+      {
+        "name": "result",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "result            VARCHAR(60)"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "ts                TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-002-apply-pass-7-sql-block-models",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "block_models",
+    "displayName": "Block Models",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/002_apply_pass_7.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "model_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "model_id        VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id     VARCHAR(50) NOT NULL"
+      },
+      {
+        "name": "commodity",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "commodity       VARCHAR(40)"
+      },
+      {
+        "name": "nx",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "nx              INTEGER NOT NULL"
+      },
+      {
+        "name": "ny",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "ny              INTEGER NOT NULL"
+      },
+      {
+        "name": "nz",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "nz              INTEGER NOT NULL"
+      },
+      {
+        "name": "origin_e",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "origin_e        NUMERIC(14,2) DEFAULT 0"
+      },
+      {
+        "name": "origin_n",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "origin_n        NUMERIC(14,2) DEFAULT 0"
+      },
+      {
+        "name": "origin_z",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "origin_z        NUMERIC(14,2) DEFAULT 0"
+      },
+      {
+        "name": "block_size_m",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "25",
+        "sourceLine": "block_size_m    NUMERIC(8,2) DEFAULT 25"
+      },
+      {
+        "name": "grid",
+        "type": "JSONB",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "grid            JSONB"
+      },
+      {
+        "name": "source",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "source          VARCHAR(80)"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes           TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-002-apply-pass-7-sql-claim-ledger",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "claim_ledger",
+    "displayName": "Claim Ledger",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/002_apply_pass_7.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "ledger_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "ledger_id       VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "claim_id",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "claim_id        VARCHAR(50) NOT NULL"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id     VARCHAR(50)"
+      },
+      {
+        "name": "event_type",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "event_type      VARCHAR(40) NOT NULL"
+      },
+      {
+        "name": "from_party",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "from_party      VARCHAR(200)"
+      },
+      {
+        "name": "to_party",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "to_party        VARCHAR(200)"
+      },
+      {
+        "name": "prev_status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "prev_status     VARCHAR(40)"
+      },
+      {
+        "name": "next_status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "next_status     VARCHAR(40)"
+      },
+      {
+        "name": "effective_date",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "effective_date  DATE"
+      },
+      {
+        "name": "reference",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "reference       VARCHAR(200)"
+      },
+      {
+        "name": "recorded_by",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "recorded_by     VARCHAR(150)"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes           TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-claims",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "claims",
+    "displayName": "Claims",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "claim_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "claim_id          VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "claim_number",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "claim_number      VARCHAR(120)"
+      },
+      {
+        "name": "area_ha",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "area_ha           NUMERIC(12,2) DEFAULT 0"
+      },
+      {
+        "name": "expires_at",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "expires_at        DATE"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'in_good_standing'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'in_good_standing'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-contractors",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "contractors",
+    "displayName": "Contractors",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "contractor_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "contractor_id     VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name              VARCHAR(150)"
+      },
+      {
+        "name": "service",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "service           VARCHAR(120)"
+      },
+      {
+        "name": "country",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "country           VARCHAR(80)"
+      },
+      {
+        "name": "rate_usd_day",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "rate_usd_day      NUMERIC(12,2) DEFAULT 0"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'approved'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'approved'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-drill-holes",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "drill_holes",
+    "displayName": "Drill Holes",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "hole_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "hole_id           VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "collar_e",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "collar_e          NUMERIC(12,2)"
+      },
+      {
+        "name": "collar_n",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "collar_n          NUMERIC(12,2)"
+      },
+      {
+        "name": "depth_m",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "depth_m           NUMERIC(8,2) DEFAULT 0"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'planned'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'planned'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-drill-targets",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "drill_targets",
+    "displayName": "Drill Targets",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "target_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "target_id         VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name              VARCHAR(200)"
+      },
+      {
+        "name": "target_type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "target_type       VARCHAR(80)"
+      },
+      {
+        "name": "priority",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'medium'",
+        "sourceLine": "priority          VARCHAR(20) DEFAULT 'medium'"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'proposed'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'proposed'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-environmental-impacts",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "environmental_impacts",
+    "displayName": "Environmental Impacts",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "impact_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "impact_id         VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "type              VARCHAR(80)"
+      },
+      {
+        "name": "severity",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'low'",
+        "sourceLine": "severity          VARCHAR(20) DEFAULT 'low'"
+      },
+      {
+        "name": "opened_at",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "opened_at         DATE"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'open'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'open'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-expense-reports",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "expense_reports",
+    "displayName": "Expense Reports",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "expense_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "expense_id        VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "category",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "category          VARCHAR(80)"
+      },
+      {
+        "name": "amount_usd",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "amount_usd        NUMERIC(14,2) DEFAULT 0"
+      },
+      {
+        "name": "period",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "period            VARCHAR(40)"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'recorded'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'recorded'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-geochem-samples",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "geochem_samples",
+    "displayName": "Geochem Samples",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "sample_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "sample_id         VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "type              VARCHAR(60)"
+      },
+      {
+        "name": "location",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "location          VARCHAR(200)"
+      },
+      {
+        "name": "taken_at",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "taken_at          DATE"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'pending'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'pending'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-geological-logs",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "geological_logs",
+    "displayName": "Geological Logs",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "log_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "log_id            VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "hole_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "hole_id           VARCHAR(50)"
+      },
+      {
+        "name": "from_m",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "from_m            NUMERIC(8,2)"
+      },
+      {
+        "name": "to_m",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "to_m              NUMERIC(8,2)"
+      },
+      {
+        "name": "lithology",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "lithology         VARCHAR(150)"
+      },
+      {
+        "name": "structure",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "structure         VARCHAR(200)"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-geologists",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "geologists",
+    "displayName": "Geologists",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "geo_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "geo_id            VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name              VARCHAR(150)"
+      },
+      {
+        "name": "specialty",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "specialty         VARCHAR(120)"
+      },
+      {
+        "name": "base",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "base              VARCHAR(120)"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'active'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'active'"
+      },
+      {
+        "name": "contact",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "contact           VARCHAR(150)"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-geophysics-surveys",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "geophysics_surveys",
+    "displayName": "Geophysics Surveys",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "survey_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "survey_id         VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "method",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "method            VARCHAR(80)"
+      },
+      {
+        "name": "vendor",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "vendor            VARCHAR(150)"
+      },
+      {
+        "name": "completed_at",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "completed_at      DATE"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'planned'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'planned'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-indigenous-consultations",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "indigenous_consultations",
+    "displayName": "Indigenous Consultations",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "consult_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "consult_id        VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "community",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "community         VARCHAR(200)"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "type              VARCHAR(80)"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'open'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'open'"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "ts                TIMESTAMPTZ"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-ndp-resource-estimates",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "ndp_resource_estimates",
+    "displayName": "Ndp Resource Estimates",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "estimate_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "estimate_id       VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "category",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "category          VARCHAR(40)"
+      },
+      {
+        "name": "tonnes",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "tonnes            NUMERIC(18,2) DEFAULT 0"
+      },
+      {
+        "name": "grade",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "grade             NUMERIC(12,4) DEFAULT 0"
+      },
+      {
+        "name": "ndp_compliant",
+        "type": "BOOLEAN",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "TRUE",
+        "sourceLine": "ndp_compliant     BOOLEAN DEFAULT TRUE"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-notifications",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "notifications",
+    "displayName": "Notifications",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "user_id",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "user_id         INTEGER"
+      },
+      {
+        "name": "title",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "title           VARCHAR(200)"
+      },
+      {
+        "name": "body",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "body            TEXT"
+      },
+      {
+        "name": "severity",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'info'",
+        "sourceLine": "severity        VARCHAR(20) DEFAULT 'info'"
+      },
+      {
+        "name": "source",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "source          VARCHAR(80)"
+      },
+      {
+        "name": "read_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "read_at         TIMESTAMPTZ"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-partners",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "partners",
+    "displayName": "Partners",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "partner_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "partner_id        VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name              VARCHAR(200)"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "type              VARCHAR(80)"
+      },
+      {
+        "name": "ownership_pct",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "ownership_pct     NUMERIC(6,2) DEFAULT 0"
+      },
+      {
+        "name": "contact",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "contact           VARCHAR(200)"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'active'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'active'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-permits",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "permits",
+    "displayName": "Permits",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "permit_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "permit_id         VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50)"
+      },
+      {
+        "name": "authority",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "authority         VARCHAR(150)"
+      },
+      {
+        "name": "type",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "type              VARCHAR(80)"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'pending'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'pending'"
+      },
+      {
+        "name": "issued_at",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "issued_at         DATE"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-properties",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "properties",
+    "displayName": "Properties",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "property_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "property_id       VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name              VARCHAR(200) NOT NULL"
+      },
+      {
+        "name": "country",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "country           VARCHAR(80)"
+      },
+      {
+        "name": "area_km2",
+        "type": "NUMERIC",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "0",
+        "sourceLine": "area_km2          NUMERIC(12,2) DEFAULT 0"
+      },
+      {
+        "name": "commodity_target",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "commodity_target  VARCHAR(120)"
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'active'",
+        "sourceLine": "status            VARCHAR(30) DEFAULT 'active'"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-samples-inventory",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "samples_inventory",
+    "displayName": "Samples Inventory",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id                SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "inv_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "inv_id            VARCHAR(50) UNIQUE"
+      },
+      {
+        "name": "sample_id",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "sample_id         VARCHAR(50)"
+      },
+      {
+        "name": "location",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "location          VARCHAR(200)"
+      },
+      {
+        "name": "qa_status",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'pending'",
+        "sourceLine": "qa_status         VARCHAR(30) DEFAULT 'pending'"
+      },
+      {
+        "name": "sent_to",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "sent_to           VARCHAR(150)"
+      },
+      {
+        "name": "ts",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "ts                TIMESTAMPTZ"
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "notes             TEXT"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at        TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at        TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-users",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "users",
+    "displayName": "Users",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "email",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true,
+        "defaultValue": "",
+        "sourceLine": "email           VARCHAR(150) UNIQUE NOT NULL"
+      },
+      {
+        "name": "password",
+        "type": "VARCHAR",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "password        VARCHAR(120) NOT NULL"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name            VARCHAR(120)"
+      },
+      {
+        "name": "role",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "'viewer'",
+        "sourceLine": "role            VARCHAR(20) DEFAULT 'viewer'"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-webhook-deliveries",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "webhook_deliveries",
+    "displayName": "Webhook Deliveries",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "webhook_id",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "webhook_id      INTEGER"
+      },
+      {
+        "name": "event",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "event           VARCHAR(120)"
+      },
+      {
+        "name": "payload",
+        "type": "JSONB",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "payload         JSONB"
+      },
+      {
+        "name": "status_code",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "status_code     INTEGER"
+      },
+      {
+        "name": "response_body",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "response_body   TEXT"
+      },
+      {
+        "name": "attempted_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "attempted_at    TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
+    "id": "ai-mineral-exploration-geology-backend-migrations-001-schema-sql-webhooks",
+    "sourceProject": "AIMineralExplorationGeology",
+    "name": "webhooks",
+    "displayName": "Webhooks",
+    "framework": "SQL",
+    "sourceFile": "backend/migrations/001_schema.sql",
+    "columns": [
+      {
+        "name": "id",
+        "type": "SERIAL",
+        "nullable": true,
+        "primaryKey": true,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "id              SERIAL PRIMARY KEY"
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "name            VARCHAR(120)"
+      },
+      {
+        "name": "url",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "url             VARCHAR(500)"
+      },
+      {
+        "name": "secret",
+        "type": "VARCHAR",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "secret          VARCHAR(120)"
+      },
+      {
+        "name": "events",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "",
+        "sourceLine": "events          TEXT"
+      },
+      {
+        "name": "active",
+        "type": "BOOLEAN",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "TRUE",
+        "sourceLine": "active          BOOLEAN DEFAULT TRUE"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "created_at      TIMESTAMPTZ DEFAULT NOW()"
+      },
+      {
+        "name": "updated_at",
+        "type": "TIMESTAMPTZ",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "defaultValue": "NOW()",
+        "sourceLine": "updated_at      TIMESTAMPTZ DEFAULT NOW()"
+      }
+    ]
+  },
+  {
     "id": "ai-mining-operations-optimizer-backend-src-models-cost-analysis-js-cost-analyses",
     "sourceProject": "AIMiningOperationsOptimizer",
     "name": "cost_analyses",

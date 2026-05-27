@@ -18,3 +18,13 @@
 - Profiles
 - AI Assistant
 - AI Tools
+
+## Mineral Exploration Geology
+
+- Exploration Targets
+- Geology Sample Review
+- Mineral Prospect Risk
+
+## Focused enhancement: Mineral Exploration Geology
+
+Source evidence: AIMineralExplorationGeology.

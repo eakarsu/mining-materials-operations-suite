@@ -1,8 +1,8 @@
 # Mining Materials Operations Suite Source Data Tables
 
-Mapped source projects: 5
+Mapped source projects: 6
 
-Detected source tables: 115
+Detected source tables: 141
 
 | Source Project | Table | Framework | Columns | Source File |
 | --- | --- | --- | ---: | --- |
@@ -100,6 +100,32 @@ Detected source tables: 115
 | AICryptocurrencyTaxCalculator | gap_features | SQL | 7 | backend/src/routes/gap_no_wallet_private_key_security_module.js |
 | AICryptocurrencyTaxCalculator | gap_features | SQL | 7 | backend/src/routes/gap_no_webhooks.js |
 | AICryptocurrencyTaxCalculator | users | Sequelize | 4 | backend/src/models/User.js |
+| AIMineralExplorationGeology | ai_results | SQL | 5 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | assay_results | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | attachments | SQL | 9 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | audit_log | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | block_models | SQL | 16 | backend/migrations/002_apply_pass_7.sql |
+| AIMineralExplorationGeology | claim_ledger | SQL | 14 | backend/migrations/002_apply_pass_7.sql |
+| AIMineralExplorationGeology | claims | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | contractors | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | drill_holes | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | drill_targets | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | environmental_impacts | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | expense_reports | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | geochem_samples | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | geological_logs | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | geologists | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | geophysics_surveys | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | indigenous_consultations | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | ndp_resource_estimates | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | notifications | SQL | 8 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | partners | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | permits | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | properties | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | samples_inventory | SQL | 10 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | users | SQL | 7 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | webhook_deliveries | SQL | 7 | backend/migrations/001_schema.sql |
+| AIMineralExplorationGeology | webhooks | SQL | 8 | backend/migrations/001_schema.sql |
 | AIMiningOperationsOptimizer | cost_analyses | Sequelize | 13 | backend/src/models/CostAnalysis.js |
 | AIMiningOperationsOptimizer | drill_patterns | Sequelize | 13 | backend/src/models/DrillPattern.js |
 | AIMiningOperationsOptimizer | environmental_compliance | Sequelize | 13 | backend/src/models/EnvironmentalCompliance.js |

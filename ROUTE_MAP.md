@@ -7,6 +7,9 @@ Primary routes:
 - `/profiles`
 
 Feature routes:
+- `/mineral-prospect-risk`
+- `/geology-sample-review`
+- `/exploration-targets`
 - `/sites`
 - `/equipment`
 - `/production`
